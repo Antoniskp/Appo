@@ -9,7 +9,7 @@ Application for news, education and polls with PostgreSQL and strong authenticat
 - **Education**: Manage educational courses and content
 - **Polls**: Create polls with multiple options and voting functionality
 - **PostgreSQL Database**: Robust relational database with proper indexing
-- **Security**: Helmet for HTTP headers, CORS protection, input validation
+- **Security**: Helmet for HTTP headers, CORS protection, input validation, rate limiting
 - **RESTful API**: Clean and well-structured API endpoints
 
 ## Tech Stack
@@ -19,7 +19,7 @@ Application for news, education and polls with PostgreSQL and strong authenticat
 - **Authentication**: JWT (JSON Web Tokens)
 - **Password Hashing**: bcrypt
 - **Validation**: express-validator
-- **Security**: Helmet, CORS
+- **Security**: Helmet, CORS, Rate Limiting
 
 ## Prerequisites
 
@@ -244,6 +244,10 @@ GET /health
 5. **CORS Protection**: Configurable CORS to prevent unauthorized access
 6. **SQL Injection Protection**: Parameterized queries with PostgreSQL
 7. **Authorization**: Users can only modify their own content
+8. **Rate Limiting**: 
+   - General API: 100 requests per 15 minutes per IP
+   - Authentication endpoints: 5 requests per 15 minutes per IP
+   - Create endpoints: 20 requests per 15 minutes per IP
 
 ## Database Schema
 

@@ -9,6 +9,7 @@ const {
 } = require('../controllers/pollsController');
 const authMiddleware = require('../middleware/auth');
 const validate = require('../middleware/validate');
+const { createLimiter } = require('../middleware/rateLimiter');
 
 const router = express.Router();
 
@@ -20,6 +21,7 @@ router.get('/:id', getPollById);
 router.post(
   '/',
   authMiddleware,
+  createLimiter,
   [
     body('question').notEmpty().withMessage('Question is required'),
     body('options').isArray({ min: 2 }).withMessage('Must provide at least 2 options'),

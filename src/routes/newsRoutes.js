@@ -9,6 +9,7 @@ const {
 } = require('../controllers/newsController');
 const authMiddleware = require('../middleware/auth');
 const validate = require('../middleware/validate');
+const { createLimiter } = require('../middleware/rateLimiter');
 
 const router = express.Router();
 
@@ -20,6 +21,7 @@ router.get('/:id', getNewsById);
 router.post(
   '/',
   authMiddleware,
+  createLimiter,
   [
     body('title').notEmpty().withMessage('Title is required'),
     body('content').notEmpty().withMessage('Content is required'),
