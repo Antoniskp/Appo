@@ -1,5 +1,6 @@
 .material-theme {
   --md-primary: #6750a4;
+  --md-primary-rgb: 103 80 164;
   --md-on-primary: #ffffff;
   --md-primary-container: #eaddff;
   --md-on-primary-container: #21005d;
@@ -110,7 +111,7 @@
 .material-theme .form-group input:focus,
 .material-theme .form-group textarea:focus {
   border-color: var(--md-primary);
-  box-shadow: 0 0 0 3px rgba(103, 80, 164, 0.2);
+  box-shadow: 0 0 0 3px rgba(var(--md-primary-rgb), 0.2);
 }
 
 .material-theme footer {
@@ -119,7 +120,7 @@
 
 @media (max-width: 768px) {
   .material-theme header {
-    position: static;
+    position: relative;
   }
 
   .material-theme .contact-form {
