@@ -13,7 +13,15 @@ const pollsRoutes = require('./routes/pollsRoutes');
 const app = express();
 
 // Security middleware
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: {
+    useDefaults: true,
+    directives: {
+      "style-src": ["'self'", "https://fonts.googleapis.com"],
+      "font-src": ["'self'", "https://fonts.gstatic.com"]
+    }
+  }
+}));
 
 // CORS configuration
 app.use(cors({
