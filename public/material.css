@@ -1,0 +1,135 @@
+.material-theme {
+  --md-primary: #6750a4;
+  --md-on-primary: #ffffff;
+  --md-primary-container: #eaddff;
+  --md-on-primary-container: #21005d;
+  --md-secondary: #625b71;
+  --md-on-secondary: #ffffff;
+  --md-surface: #fffbff;
+  --md-surface-container: #f3edf7;
+  --md-on-surface: #1c1b1f;
+  --md-outline: #79747e;
+  --md-outline-variant: #c4c7c5;
+  --md-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.14);
+  --md-shadow-2: 0 4px 8px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.12);
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  background-color: var(--md-surface);
+  color: var(--md-on-surface);
+}
+
+.material-theme header,
+.material-theme .hero,
+.material-theme .cta {
+  background: var(--md-primary);
+  color: var(--md-on-primary);
+}
+
+.material-theme header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: var(--md-shadow-1);
+}
+
+.material-theme .logo {
+  letter-spacing: 0.5px;
+}
+
+.material-theme nav a {
+  color: var(--md-on-primary);
+  font-weight: 500;
+}
+
+.material-theme section:nth-child(even) {
+  background-color: var(--md-surface-container);
+}
+
+.material-theme .section-title {
+  color: var(--md-primary);
+  font-weight: 600;
+}
+
+.material-theme .section-subtitle {
+  color: #4a4458;
+}
+
+.material-theme .feature-card,
+.material-theme .rules-list {
+  border-radius: 16px;
+  border: 1px solid var(--md-outline-variant);
+  box-shadow: var(--md-shadow-1);
+}
+
+.material-theme .feature-card:hover {
+  box-shadow: var(--md-shadow-2);
+}
+
+.material-theme .feature-icon {
+  color: var(--md-primary);
+}
+
+.material-theme .btn,
+.material-theme .submit-btn {
+  background: var(--md-secondary);
+  color: var(--md-on-secondary);
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: none;
+}
+
+.material-theme .btn:hover,
+.material-theme .submit-btn:hover {
+  box-shadow: var(--md-shadow-2);
+}
+
+.material-theme .contact-form {
+  background: var(--md-surface);
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid var(--md-outline-variant);
+  box-shadow: var(--md-shadow-1);
+}
+
+.material-theme .form-group label {
+  color: var(--md-on-surface);
+  font-weight: 500;
+}
+
+.material-theme .form-group input,
+.material-theme .form-group textarea {
+  background: #ffffff;
+  border: 1px solid var(--md-outline);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.material-theme .form-group input:focus,
+.material-theme .form-group textarea:focus {
+  border-color: var(--md-primary);
+  box-shadow: 0 0 0 3px rgba(103, 80, 164, 0.2);
+}
+
+.material-theme footer {
+  background: #1f1b2e;
+}
+
+@media (max-width: 768px) {
+  .material-theme header {
+    position: static;
+  }
+
+  .material-theme .contact-form {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .material-theme section {
+    padding: 48px 0;
+  }
+
+  .material-theme .features {
+    grid-template-columns: 1fr;
+  }
+}

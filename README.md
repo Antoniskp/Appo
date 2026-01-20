@@ -20,6 +20,7 @@ Application for news, education and polls with PostgreSQL and strong authenticat
 - **Password Hashing**: bcrypt
 - **Validation**: express-validator
 - **Security**: Helmet, CORS, Rate Limiting
+- **UI**: Static HTML in `public/` with optional Material-styled theme overlays
 
 ## Prerequisites
 
@@ -265,6 +266,12 @@ Run in development mode with auto-reload:
 ```bash
 npm run dev
 ```
+
+## UI Theme Notes
+
+- Base styles live in `public/app.css`.
+- Material-style overrides live in `public/material.css` and are enabled via `class="material-theme"` on the `<body>`.
+- To disable the Material theme later, remove the `material.css` link and the `material-theme` class.
 
 ## Environment Variables
 
