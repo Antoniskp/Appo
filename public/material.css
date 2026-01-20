@@ -119,11 +119,6 @@
 }
 
 @media (max-width: 768px) {
-  .material-theme header {
-    position: sticky;
-    top: 0;
-  }
-
   .material-theme .contact-form {
     padding: 24px;
   }
