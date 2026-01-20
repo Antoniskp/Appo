@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appofasi - Πλατφόρμα Νέων, Δημοσκοπήσεων και Εκπαίδευσης</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        section:nth-child(even) {
+            background-color: white;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #667eea;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            text-align: center;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .cta {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .rules-list {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .rules-list ol {
+            padding-left: 25px;
+        }
+
+        .rules-list li {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .rules-list li strong {
+            color: #667eea;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Appofasi</div>
+                <nav>
+                    <ul>
+                        <li><a href="#news">Νέα</a></li>
+                        <li><a href="#polls">Δημοσκοπήσεις</a></li>
+                        <li><a href="#education">Εκπαίδευση</a></li>
+                        <li><a href="#about">Σχετικά</a></li>
+                        <li><a href="#contact">Επικοινωνία</a></li>
+                        <li><a href="#rules">Κανόνες</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Καλώς ήρθατε στο Appofasi</h1>
+            <p>Η ολοκληρωμένη πλατφόρμα για ενημέρωση, συμμετοχή και εκπαίδευση της κοινότητάς μας</p>
+        </div>
+    </section>
+
+    <section id="news">
+        <div class="container">
+            <h2 class="section-title">Νέα</h2>
+            <p class="section-subtitle">Μείνετε ενημερωμένοι με τα τελευταία νέα και εξελίξεις</p>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">📰</div>
+                    <h3>Επίκαιρα Νέα</h3>
+                    <p>Ανακαλύψτε τα πιο πρόσφατα νέα και ενημερώσεις από την κοινότητα και τον κόσμο.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3>Ειδοποιήσεις</h3>
+                    <p>Λαμβάνετε ειδοποιήσεις για σημαντικά γεγονότα και ανακοινώσεις σε πραγματικό χρόνο.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Ανάλυση</h3>
+                    <p>Εις βάθος ανάλυση και σχολιασμός των σημαντικότερων θεμάτων της επικαιρότητας.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="polls">
+        <div class="container">
+            <h2 class="section-title">Δημοσκοπήσεις</h2>
+            <p class="section-subtitle">Η γνώμη σας μετράει! Συμμετέχετε στις δημοσκοπήσεις μας</p>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🗳️</div>
+                    <h3>Ψηφίστε</h3>
+                    <p>Εκφράστε την άποψή σας σε σημαντικά θέματα που επηρεάζουν την κοινότητα.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Αποτελέσματα</h3>
+                    <p>Δείτε αναλυτικά αποτελέσματα και στατιστικά από τις δημοσκοπήσεις μας.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Συζητήστε</h3>
+                    <p>Συμμετέχετε σε συζητήσεις και ανταλλάξτε απόψεις με άλλα μέλη της κοινότητας.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Εκπαίδευση</h2>
+            <p class="section-subtitle">Μάθετε και αναπτυχθείτε με το εκπαιδευτικό μας περιεχόμενο</p>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3>Μαθήματα</h3>
+                    <p>Πρόσβαση σε ποικίλο εκπαιδευτικό υλικό και μαθήματα για όλα τα επίπεδα.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Πιστοποιήσεις</h3>
+                    <p>Αποκτήστε πιστοποιήσεις και αναγνώριση για τις γνώσεις που αποκτάτε.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Κοινότητα</h3>
+                    <p>Συνδεθείτε με άλλους μαθητές και καθηγητές για συνεργατική μάθηση.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Σχετικά με το Appofasi</h2>
+            <p class="section-subtitle">Η αποστολή και το όραμά μας</p>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Η Αποστολή μας</h3>
+                    <p>Να δημιουργήσουμε μια ενιαία πλατφόρμα που συνδυάζει ενημέρωση, συμμετοχή και εκπαίδευση, ενδυναμώνοντας την κοινότητά μας.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Το Όραμά μας</h3>
+                    <p>Να γίνουμε η κορυφαία πλατφόρμα για συλλογική δράση και εκπαίδευση στην Ελλάδα.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Οι Αξίες μας</h3>
+                    <p>Διαφάνεια, συμμετοχικότητα, καινοτομία και σεβασμός στην κοινότητα είναι οι βασικές μας αξίες.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Επικοινωνία</h2>
+            <p class="section-subtitle">Επικοινωνήστε μαζί μας για οποιαδήποτε ερώτηση ή σχόλιο</p>
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('Ευχαριστούμε για το μήνυμά σας! Θα επικοινωνήσουμε σύντομα μαζί σας.');">
+                <div class="form-group">
+                    <label for="name">Όνομα:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Θέμα:</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Μήνυμα:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Αποστολή Μηνύματος</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="rules">
+        <div class="container">
+            <h2 class="section-title">Κανόνες Χρήσης</h2>
+            <p class="section-subtitle">Παρακαλούμε διαβάστε και τηρήστε τους κανόνες της πλατφόρμας μας</p>
+            <div class="rules-list">
+                <ol>
+                    <li><strong>Σεβασμός:</strong> Σεβαστείτε τα μέλη της κοινότητας και τις απόψεις τους. Καμία μορφή παρενόχλησης ή προσβολής δεν γίνεται ανεκτή.</li>
+                    <li><strong>Ακεραιότητα:</strong> Μην δημοσιεύετε παραπλανητικό ή ψευδές περιεχόμενο. Η αλήθεια και η διαφάνεια είναι σημαντικές.</li>
+                    <li><strong>Νομιμότητα:</strong> Όλο το περιεχόμενο πρέπει να συμμορφώνεται με τους νόμους της Ελλάδας και της Ευρωπαϊκής Ένωσης.</li>
+                    <li><strong>Απορρητο:</strong> Σεβαστείτε την ιδιωτικότητα των άλλων. Μην δημοσιεύετε προσωπικές πληροφορίες χωρίς συγκατάθεση.</li>
+                    <li><strong>Ποιότητα:</strong> Συνεισφέρετε με ποιοτικό περιεχόμενο που προσθέτει αξία στην κοινότητα.</li>
+                    <li><strong>Συνεργασία:</strong> Εργαστείτε μαζί με άλλα μέλη για να δημιουργήσετε ένα θετικό περιβάλλον μάθησης και ανταλλαγής απόψεων.</li>
+                    <li><strong>Αναφορά Προβλημάτων:</strong> Αν αντιμετωπίσετε κάποιο πρόβλημα ή παραβίαση των κανόνων, αναφέρετέ το αμέσως στους διαχειριστές.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Είστε έτοιμοι να ξεκινήσετε;</h2>
+            <p>Γίνετε μέλος της κοινότητάς μας και συμβάλετε στο μέλλον</p>
+            <a href="/api/auth/register" class="btn">Εγγραφή Τώρα</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Appofasi. Όλα τα δικαιώματα διατηρούνται.</p>
+            <p>Επικοινωνία: <a href="mailto:info@appofasi.gr">info@appofasi.gr</a></p>
+        </div>
+    </footer>
+</body>
+</html>
