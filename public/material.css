@@ -120,7 +120,8 @@
 
 @media (max-width: 768px) {
   .material-theme header {
-    position: relative;
+    position: sticky;
+    top: 0;
   }
 
   .material-theme .contact-form {
