@@ -8,8 +8,11 @@
   --md-surface: #fffbff;
   --md-surface-container: #f3edf7;
   --md-on-surface: #1c1b1f;
+  --md-on-surface-variant: #4a4458;
+  --md-surface-elevated: #ffffff;
   --md-outline: #79747e;
   --md-outline-variant: #c4c7c5;
+  --md-surface-strong: #1f1b2e;
   --md-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.14);
   --md-shadow-2: 0 4px 8px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.12);
   font-family: 'Roboto', 'Segoe UI', sans-serif;
@@ -50,7 +53,7 @@
 }
 
 .material-theme .section-subtitle {
-  color: #4a4458;
+  color: var(--md-on-surface-variant);
 }
 
 .material-theme .feature-card,
@@ -98,7 +101,7 @@
 
 .material-theme .form-group input,
 .material-theme .form-group textarea {
-  background: #ffffff;
+  background: var(--md-surface-elevated);
   border: 1px solid var(--md-outline);
   border-radius: 12px;
   padding: 14px;
@@ -111,7 +114,7 @@
 }
 
 .material-theme footer {
-  background: #1f1b2e;
+  background: var(--md-surface-strong);
 }
 
 @media (max-width: 768px) {
