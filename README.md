@@ -271,7 +271,7 @@ npm run dev
 
 - Base styles live in `public/app.css`.
 - Material-style overrides live in `public/material.css` and are enabled via `class="material-theme"` on the `<body>`.
-- To disable the Material theme later, remove the `material.css` link and the `material-theme` class.
+- To disable the Material theme later, remove the `material.css` link and remove the `material-theme` class from the `<body>` element.
 
 ## Environment Variables
 
