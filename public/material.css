@@ -79,7 +79,6 @@
   border-radius: 999px;
   font-weight: 600;
   letter-spacing: 0.3px;
-  text-transform: none;
 }
 
 .material-theme .btn:hover,
@@ -111,7 +110,7 @@
 .material-theme .form-group input:focus,
 .material-theme .form-group textarea:focus {
   border-color: var(--md-primary);
-  box-shadow: 0 0 0 3px rgba(var(--md-primary-rgb), 0.2);
+  box-shadow: 0 0 0 3px rgb(var(--md-primary-rgb) / 0.2);
 }
 
 .material-theme footer {
