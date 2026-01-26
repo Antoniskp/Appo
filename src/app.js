@@ -5,6 +5,7 @@ const helmet = require('helmet');
 require('dotenv').config();
 
 const { apiLimiter } = require('./middleware/rateLimiter');
+const { healthCheck } = require('./controllers/healthController');
 const authRoutes = require('./routes/authRoutes');
 const newsRoutes = require('./routes/newsRoutes');
 const educationRoutes = require('./routes/educationRoutes');
@@ -46,9 +47,7 @@ app.use('/api/education', educationRoutes);
 app.use('/api/polls', pollsRoutes);
 
 // Health check
-app.get('/health', (req, res) => {
-  res.json({ status: 'OK', timestamp: new Date().toISOString() });
-});
+app.get('/health', healthCheck);
 
 // 404 handler
 app.use((req, res) => {
